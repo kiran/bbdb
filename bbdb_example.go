@@ -1,15 +1,15 @@
 package main
 
 import (
-	"github.com/kiran/bbdb/engine"
 	"fmt"
+	"github.com/kiran/bbdb/engine"
 	"os"
 )
 
 func check(e error) {
-    if e != nil {
-        panic(e)
-    }
+	if e != nil {
+		panic(e)
+	}
 }
 
 func main() {
@@ -22,8 +22,8 @@ func main() {
 
 	// create the table, associate it with some_data_file.dat
 	f, err := os.Create("some_data_file.dat")
-    check(err)
-    defer f.Close()
+	check(err)
+	defer f.Close()
 	table1 := engine.NewHeapFile(f, descriptor)
 	// Database.Catalog().AddTable(table1, "test_table")
 
