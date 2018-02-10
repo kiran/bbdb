@@ -12,14 +12,37 @@ type Type interface {
 	// Parse returns a Field object of the same type as this object that has
 	// contents read from the specified data input stream.
 	Parse(dis *bufio.Reader) (Field, error)
+
+	String() string
 }
 
 // define type int and type string
-type IntType struct {}
-func (it *IntType) Length() int {
-	return 4;
+type IntType struct{}
+
+func (it IntType) Length() int {
+	return 4
 }
-func (it *IntType) Parse(dis *bufio.Reader) (Field, error) {
+
+// TODO
+func (it IntType) Parse(dis *bufio.Reader) (Field, error) {
 	return nil, nil
 }
 
+func (it IntType) String() string {
+	return "IntType"
+}
+
+type StringType struct{}
+
+func (st StringType) Length() int {
+	// TODO
+	return 12
+}
+
+func (st StringType) Parse(dis *bufio.Reader) (Field, error) {
+	return nil, nil
+}
+
+func (st StringType) String() string {
+	return "StringType"
+}
